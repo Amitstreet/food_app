@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.shimmer-container{
+
+    width: 90%;
+    justify-content: center;
+    height: auto;
+    /* border: solid red; */
+    flex-wrap: wrap;
+    margin: auto;
+    display: flex;
+
+}
+
+
+.shimmer-card{
+    height: 12rem;
+    width: 16rem;
+    padding: 10px;
+    margin: 1rem;
+    background: gray;
+    /* height: auto; */
+    border: solid gray;
+}

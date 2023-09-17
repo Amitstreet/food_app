@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 
-const ItemList = ({ items, dummy }) => {
+const ItemList = ({ stop,items, dummy, }) => {
   const dispatch = useDispatch();
 
   const handleAddItem = (item) => {
@@ -10,8 +10,15 @@ const ItemList = ({ items, dummy }) => {
     dispatch(addItem(item));
   };
 
+  console.log(stop);
+
+  if(!stop){
+    return null;
+  }
+
   return (
     <div>
+     
       {items.map((item) => (
         <div
           data-testid="foodItems"

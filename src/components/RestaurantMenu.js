@@ -15,6 +15,8 @@ const RestaurantMenu = () => {
 
   if (resInfo === null) return <Shimmer />;
 
+
+
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
 
@@ -27,7 +29,7 @@ const RestaurantMenu = () => {
         c.card?.["card"]?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  //console.log(categories);
+  console.log(categories);
 
   return (
     <div className="text-center">
@@ -35,13 +37,14 @@ const RestaurantMenu = () => {
       <p className="font-bold text-lg">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
+      
       {/* categories accordions */}
       {categories.map((category, index) => (
         // controlled component
         <RestaurantCategory
           key={category?.card?.card.title}
           data={category?.card?.card}
-          showItems={index === showIndex ? true : false}
+          showItems={index === showIndex ? true : false} 
           setShowIndex={() => setShowIndex(index)}
           dummy={dummy}
         />

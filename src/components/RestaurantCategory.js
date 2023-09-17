@@ -1,16 +1,29 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
-  const handleClick = () => {
+const RestaurantCategory = ({ data, showItems,setShowIndex, dummy }) => {
+
+  const [stop, setstop] = useState(false);
+
+  
+
+  const handleClick = () => {    
+    
+
+   stop==false?setstop(true):setstop(false);
     setShowIndex();
   };
+
+  
+  
+  
   return (
     <div>
       {/* Header */}
       <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow-lg p-4">
         <div
           className="flex justify-between cursor-pointer"
+
           onClick={handleClick}
         >
           <span className="font-bold text-lg">
@@ -18,8 +31,10 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
           </span>
           <span>⬇️</span>
         </div>
+         {
+          showItems && stop ? <ItemList  stop ={true} items={data.itemCards} dummy={dummy}/>:<ItemList  stop ={false} items={data.itemCards} dummy={dummy}/>
+         }
 
-        {showItems && <ItemList items={data.itemCards} dummy={dummy} />}
       </div>
     </div>
   );
